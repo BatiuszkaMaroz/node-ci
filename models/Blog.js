@@ -5,7 +5,13 @@ const blogSchema = new Schema({
   title: String,
   content: String,
   createdAt: { type: Date, default: Date.now },
-  _user: { type: Schema.Types.ObjectId, ref: 'User' }
+  _user: { type: Schema.Types.ObjectId, ref: 'User' },
 });
 
-mongoose.model('Blog', blogSchema);
+// blogSchema.pre('find', async function () {
+//   const query = this.getFilter();
+
+//   return true;
+// });
+
+module.exports = mongoose.model('Blog', blogSchema);
